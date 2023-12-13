@@ -25,13 +25,57 @@ module.exports.doRegister = (req, res, next) => {
           username,
           email,
           password,
-        });
-        res.redirect("/login")
+        })
+          .then((userCreated) => {
+            const {
+              transporter,
+              createEmailTemplate,
+            } = require('../config/nodemailer.config'); 
+
+            transporter.sendMail(
+              {
+                from: process.env.NODEMAILER_EMAIL,
+                to: email,
+                subject: 'LetsCookIt - Validation email',
+                html: createEmailTemplate(userCreated),
+              }, 
+              function (error, info) {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log('Email sent: ' + info.response);
+                }
+                res.redirect('/login');
+              }
+            )
+          })
+          .catch((error) => {
+            if (error instanceof mongoose.Error.ValidationError) {
+              res.render('auth/register', {
+                user: {
+                  email,
+                  username,
+                }, 
+                erros: error.errors,
+              }); 
+            } else {
+              next (error);
+            }
+          })
       }
     })
     .catch((err) => {
       console.error(err);
     });
+};
+
+module.exports.activate = (req, res, next) => {
+  const { token } = req.params;
+  User.findOneAndUpdate({ activationToken: token }, { isActive: true }, { new: true })
+    .then((dbUser) => {
+      res.render('auth/login', { email: dbUser.email });
+    })
+    .catch((error) => next(error));
 };
 
 module.exports.login = (req, res, next) => {
@@ -64,8 +108,12 @@ module.exports.doLogin = (req, res, next) => {
               if (!match) {
                 renderWithErrors();
               } else {
-                req.session.currentUser = dbUser;
-                res.redirect('/profile');
+                if (!dbUser.isActive) {
+                  renderWithErrors('User not active, check your inbox!');
+                } else {
+                  req.session.currentUser = dbUser;
+                  res.redirect('/profile');
+                } 
               }
             })
             .catch((err) => next(err));

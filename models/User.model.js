@@ -18,7 +18,20 @@ const UserSchema = mongoose.Schema({
       type: String,
       required: [true, "Password is required"],
       minLength: [8, "Password must be 8 characters or longer"],
-    }
+    },
+    activationToken: {
+      type: String,
+      default: () => {
+        return (
+          Math.random().toString(36).substring(2, 15) +
+          Math.random().toString(36).substring(2, 15)
+        );
+      },
+    },
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
   }); 
   
   UserSchema.pre("save", function (next) {
