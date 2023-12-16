@@ -12,12 +12,20 @@ const PostSchema = mongoose.Schema ({
         ref: "User",
         required: true,
     },
-    creationDate: {
-        type: Date, 
-        default: Date.now
+    ingredients: {
+        type: [String],
     },
+    process: {
+        type: [String],
+    },
+    category: {
+        type: String,
+        enum: ["Meat", "Chicken", "Fish", "Dessert", "Salad", "Fruits", "Vegetables", "Vegan", "Vegetarian", "Gluten Free"],
+        default: "Other",
+    }
 }, {
     virtual: true,
+    timestamp: true,
 }); 
 
 PostSchema.virtual("likes", {
@@ -31,13 +39,6 @@ PostSchema.virtual("comments", {
     ref: "Comment",
     localField: "_id",
     foreignField: "like",
-    justOne: false,
-});
-
-PostSchema.virtual("recepies", {
-    ref: "Recepie",
-    localField: "_id",
-    foreignField: "recepie",
     justOne: false,
 });
 
