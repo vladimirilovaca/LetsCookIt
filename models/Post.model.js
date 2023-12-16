@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const PostSchema = mongoose.Schema ({
+const PostSchema = mongoose.Schema({
     name: {
-        type: String, 
+        type: String,
         required: true,
     },
-    image: String, 
+    image: String,
     restaurant: String,
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -20,20 +20,20 @@ const PostSchema = mongoose.Schema ({
     },
     category: {
         type: String,
-        enum: ["Meat", "Chicken", "Fish", "Dessert", "Salad", "Fruits", "Vegetables", "Vegan", "Vegetarian", "Gluten Free"],
+        enum: ["Meat", "Chicken", "Fish", "Dessert", "Salad", "Fruits", "Vegetables", "Vegan", "Vegetarian", "Gluten Free", "Pasta"],
         default: "Other",
     }
 }, {
     virtual: true,
     timestamp: true,
-}); 
+});
 
 PostSchema.virtual("likes", {
     ref: "Like",
     localField: "_id",
     foreignField: "like",
     justOne: false,
-}); 
+});
 
 PostSchema.virtual("comments", {
     ref: "Comment",

@@ -1,0 +1,116 @@
+[
+    {
+        "name": "Spaghetti Carbonara",
+        "image": "spaghetti_image.jpg",
+        "restaurant": "Italian Delight",
+        "ingredients": [
+            "400g spaghetti",
+            "150g Guanciale",
+            "3 large eggs",
+            "1 cup grated Pecorino Romano cheese",
+            "2 cloves garlic",
+            "Salt and black pepper to taste"
+        ],
+        "process": [
+            "Cook spaghetti according to package instructions.",
+            "In a pan, sauté pancetta and garlic until golden.",
+            "In a bowl, whisk together eggs and grated cheese.",
+            "Drain cooked spaghetti and toss with the egg mixture.",
+            "Add pancetta, season with salt and pepper, and serve."
+        ],
+        "category": "Pasta"
+    },
+    {
+        "name": "Grilled Salmon",
+        "image": "salmon_image.jpg",
+        "restaurant": "Seafood Paradise",
+        "ingredients": [
+            "4 salmon fillets",
+            "2 tablespoons olive oil",
+            "1 lemon (sliced)",
+            "2 teaspoons dried dill",
+            "Salt and pepper to taste"
+        ],
+        "process": [
+            "Preheat the grill to medium-high heat.",
+            "Brush salmon fillets with olive oil and season with salt, pepper, and dried dill.",
+            "Place lemon slices on top of each fillet.",
+            "Grill for 4-5 minutes per side or until salmon flakes easily.",
+            "Serve with additional lemon slices."
+        ],
+        "category": "Fish"
+    },
+    {
+        "name": "Chocolate Cake",
+        "image": "chocolate_cake_image.jpg",
+        "restaurant": "Sweet Indulgence",
+        "ingredients": [
+            "2 cups all-purpose flour",
+            "1 3/4 cups granulated sugar",
+            "3/4 cup unsweetened cocoa powder",
+            "1 1/2 teaspoons baking powder",
+            "1 1/2 teaspoons baking soda",
+            "2 large eggs",
+            "1 cup milk",
+            "1/2 cup vegetable oil",
+            "2 teaspoons vanilla extract",
+            "1 cup boiling water"
+        ],
+        "process": [
+            "Preheat the oven to 350°F (175°C). Grease and flour two 9-inch round cake pans.",
+            "In a large bowl, whisk together flour, sugar, cocoa powder, baking powder, and baking soda.",
+            "Add eggs, milk, oil, and vanilla extract. Mix until well combined.",
+            "Stir in boiling water until the batter is smooth. The batter will be thin.",
+            "Pour the batter into prepared pans and bake for 30-35 minutes or until a toothpick inserted comes out clean."
+        ],
+        "category": "Dessert"
+    },
+    {
+        "name": "Greek Salad",
+        "image": "greek_salad_image.jpg",
+        "restaurant": "Mediterranean Delight",
+        "ingredients": [
+            "2 cups cherry tomatoes (halved)",
+            "1 cucumber (diced)",
+            "1 red onion (thinly sliced)",
+            "1 cup Kalamata olives",
+            "1 cup feta cheese (crumbled)",
+            "1/4 cup extra virgin olive oil",
+            "2 tablespoons red wine vinegar",
+            "1 teaspoon dried oregano",
+            "Salt and black pepper to taste"
+        ],
+        "process": [
+            "In a large bowl, combine cherry tomatoes, cucumber, red onion, olives, and feta cheese.",
+            "In a small bowl, whisk together olive oil, red wine vinegar, dried oregano, salt, and pepper.",
+            "Pour the dressing over the salad and toss to combine.",
+            "Serve chilled and enjoy!"
+        ],
+        "category": "Salad"
+    },
+    {
+        "name": "Vegetarian Stir-Fry",
+        "image": "vegetarian_stir_fry_image.jpg",
+        "restaurant": "Healthy Bites",
+        "ingredients": [
+            "2 cups broccoli florets",
+            "1 red bell pepper (sliced)",
+            "1 yellow bell pepper (sliced)",
+            "1 carrot (julienned)",
+            "1 zucchini (sliced)",
+            "3 tablespoons soy sauce",
+            "2 tablespoons sesame oil",
+            "2 cloves garlic (minced)",
+            "1 tablespoon ginger (minced)",
+            "1 tablespoon cornstarch (dissolved in 2 tablespoons water)"
+        ],
+        "process": [
+            "In a wok or large skillet, heat sesame oil over medium-high heat.",
+            "Add garlic and ginger, and sauté until fragrant.",
+            "Add broccoli, bell peppers, carrot, and zucchini. Stir-fry until vegetables are tender-crisp.",
+            "In a small bowl, mix soy sauce with dissolved cornstarch. Pour over the vegetables and toss to coat.",
+            "Continue cooking until the sauce thickens. Serve over rice."
+        ],
+        "category": "Vegetarian"
+    }
+]
