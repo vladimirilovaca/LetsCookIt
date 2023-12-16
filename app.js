@@ -3,14 +3,17 @@ require('dotenv').config()
 const express = require("express");
 const hbs = require("hbs");
 const logger = require("morgan");
+const passport = require("passport");
 
 require("./config/db.config");
+require("./config/passport.config");
 
 const app = express();
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
@@ -23,6 +26,8 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.session.currentUser;
     next();
 });
+
+app.use(passport.initialize());
 
 const router = require("./router/router");
 app.use("/", router);

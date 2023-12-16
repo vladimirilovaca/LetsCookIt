@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/User.model');
+const passport = require("passport");
 
 module.exports.register = (req, res, next) => {
   res.render('auth/register');
@@ -30,7 +31,7 @@ module.exports.doRegister = (req, res, next) => {
             const {
               transporter,
               createEmailTemplate,
-            } = require('../config/nodemailer.config'); 
+            } = require('../config/nodemailer.config');
 
             transporter.sendMail(
               {
@@ -38,7 +39,7 @@ module.exports.doRegister = (req, res, next) => {
                 to: email,
                 subject: 'LetsCookIt - Validation email',
                 html: createEmailTemplate(userCreated),
-              }, 
+              },
               function (error, info) {
                 if (error) {
                   console.log(error);
@@ -55,11 +56,11 @@ module.exports.doRegister = (req, res, next) => {
                 user: {
                   email,
                   username,
-                }, 
+                },
                 erros: error.errors,
-              }); 
+              });
             } else {
-              next (error);
+              next(error);
             }
           })
       }
@@ -113,7 +114,7 @@ module.exports.doLogin = (req, res, next) => {
                 } else {
                   req.session.currentUser = dbUser;
                   res.redirect('/profile');
-                } 
+                }
               }
             })
             .catch((err) => next(err));
@@ -122,6 +123,24 @@ module.exports.doLogin = (req, res, next) => {
       .catch((err) => next(err));
   }
 };
+
+module.exports.doLoginGoogle = (req, res, next) => {
+  passport.authenticate('google-auth', (error, user, validations) => {
+    if (error) {
+      next(error);
+    } else if (!user) {
+      res.status(400).render('auth/login', { user: req.body, error: validations });
+    } else {
+      req.login(user, loginErr => {
+        if (loginErr) next(loginErr)
+        else {
+          req.session.currentUser = user;
+          res.redirect('/profile');
+        }
+      })
+    }
+  })(req, res, next)
+}
 
 module.exports.logout = (req, res, next) => {
   req.session.destroy();
