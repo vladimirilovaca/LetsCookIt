@@ -1,7 +1,7 @@
 [
     {
         "name": "Spaghetti Carbonara",
-        "image": "spaghetti_image.jpg",
+        "image": "/images/carbonara.jpg",
         "restaurant": "Italian Delight",
         "ingredients": [
             "400g spaghetti",
@@ -22,7 +22,7 @@
     },
     {
         "name": "Grilled Salmon",
-        "image": "salmon_image.jpg",
+        "image": "/images/salmon.jpg",
         "restaurant": "Seafood Paradise",
         "ingredients": [
             "4 salmon fillets",
@@ -42,7 +42,7 @@
     },
     {
         "name": "Chocolate Cake",
-        "image": "chocolate_cake_image.jpg",
+        "image": "/images/chocolat-cake.jpg",
         "restaurant": "Sweet Indulgence",
         "ingredients": [
             "2 cups all-purpose flour",
@@ -67,7 +67,7 @@
     },
     {
         "name": "Greek Salad",
-        "image": "greek_salad_image.jpg",
+        "image": "/images/greek-salad.jpg",
         "restaurant": "Mediterranean Delight",
         "ingredients": [
             "2 cups cherry tomatoes (halved)",
@@ -90,7 +90,7 @@
     },
     {
         "name": "Vegetarian Stir-Fry",
-        "image": "vegetarian_stir_fry_image.jpg",
+        "image": "/images/vegetarian.jpg",
         "restaurant": "Healthy Bites",
         "ingredients": [
             "2 cups broccoli florets",

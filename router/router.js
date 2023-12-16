@@ -3,6 +3,7 @@ const { Route } = require("express");
 const authController = require("../controllers/auth.controller");
 const usersController = require("../controllers/user.controller");
 const authMiddleware = require("../middlewares/auth.middlewares");
+const feedController = require("../controllers/feed.controller");
 const passport = require('passport');
 
 const GOOGLE_SCOPES = [
@@ -27,6 +28,8 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
 
 
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
+
+router.get("/feed", authMiddleware.isAuthenticated, feedController.list);
 
 
 module.exports = router;
