@@ -12,6 +12,11 @@ const RecipeSchema = mongoose.Schema({
     process: {
         type: [String],
         required: true,
+    },
+    category: {
+        type: String,
+        enum: ["Meat", "Chicken", "Fish", "Dessert", "Salad", "Fruits", "Vegetables", "Vegan", "Vegetarian", "Gluten Free"],
+        default: "Other",
     }
 });
 
