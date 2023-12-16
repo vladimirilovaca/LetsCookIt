@@ -7,7 +7,11 @@ const PostSchema = mongoose.Schema ({
     },
     image: String, 
     restaurant: String,
-    user: String, 
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+    },
     creationDate: {
         type: Date, 
         default: Date.now
