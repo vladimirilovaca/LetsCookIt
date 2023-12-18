@@ -37,6 +37,13 @@ const UserSchema = mongoose.Schema({
   },
 });
 
+UserSchema.virtual("posts", {
+  ref: "Post",
+  localField: "_id",
+  foreignField: "user",
+  justOne: false,
+});
+
 UserSchema.pre("save", function (next) {
   console.log('entro al presave');
   if (this.isModified("password")) {

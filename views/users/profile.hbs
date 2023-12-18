@@ -10,4 +10,11 @@
 
         <h2>Email: {{currentUser.email}}</h2>
     </div> 
+</div> 
+<div class="container my-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each user.posts}}
+      {{>card this}}
+    {{/each}}
+  </div>
 </div>
