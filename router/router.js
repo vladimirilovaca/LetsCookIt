@@ -3,7 +3,7 @@ const { Route } = require("express");
 const authController = require("../controllers/auth.controller");
 const usersController = require("../controllers/user.controller");
 const authMiddleware = require("../middlewares/auth.middlewares");
-const feedController = require("../controllers/feed.controller");
+const postController = require("../controllers/post.controller");
 const passport = require('passport');
 
 const GOOGLE_SCOPES = [
@@ -22,6 +22,9 @@ router.post("/register", authMiddleware.isNotAuthenticated, authController.doReg
 router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
 router.get("/activate/:token", authController.activate);
 
+router.get("/newpost", authMiddleware.isAuthenticated, postController.create);
+router.post("/newpost", authMiddleware.isAuthenticated, postController.doCreate);
+
 
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
@@ -29,7 +32,7 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
 
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
-router.get("/feed", authMiddleware.isAuthenticated, feedController.list);
+router.get("/feed", authMiddleware.isAuthenticated, postController.list); 
 
 
 module.exports = router;

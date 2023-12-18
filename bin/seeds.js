@@ -20,11 +20,12 @@ mongoose.connection.once('open', () => {
         .then(() => {
             return User.create(user);
         })
-        .then((usersDB) => {
+        .then((userDB) => {
+            console.log(userDB)
             const postsToCreate = [...posts].map(post => {
                 return {
                     ...post,
-                    user: usersDB[0]._id
+                    user: userDB[0]._id
                 }
             })
             return Post.create(postsToCreate)

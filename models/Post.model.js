@@ -12,15 +12,9 @@ const PostSchema = mongoose.Schema({
         ref: "User",
         required: true,
     },
-    ingredients: {
-        type: [String],
-    },
-    process: {
-        type: [String],
-    },
     category: {
         type: String,
-        enum: ["Meat", "Chicken", "Fish", "Dessert", "Salad", "Fruits", "Vegetables", "Vegan", "Vegetarian", "Gluten Free", "Pasta"],
+        enum: ["Other", "Meat", "Chicken", "Fish", "Dessert", "Salad", "Fruits", "Vegetables", "Vegan", "Vegetarian", "Gluten Free", "Pasta"],
         default: "Other",
     }
 }, {
