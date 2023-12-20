@@ -31,7 +31,7 @@ const PostSchema = mongoose.Schema({
 PostSchema.virtual("likes", {
     ref: "Like",
     localField: "_id",
-    foreignField: "like",
+    foreignField: "post",
     justOne: false,
 });
 
