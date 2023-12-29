@@ -1,10 +1,14 @@
 <div class="card" style="width: 18rem;">
-  <img src="{{image}}" class="card-img-top" alt="...">
+  <img src="{{post.image}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <p>{{user.username}}</p>
-    <h5 class="card-title">{{name}}</h5>
-    <p class="card-text">{{restaurant}}</p>
+    <p>{{post.user.username}}</p>
+    <h5 class="card-title">{{post.name}}</h5>
+    <p class="card-text">{{post.restaurant}}</p>
     <a href="#" class="btn btn-primary">See More</a>
-    <a href="#" class="btn btn-primary">Like</a>
+    {{currentUser.username}}
+    <form action="/feed/{{post._id}}/like" method="POST">
+      <button type="submit" class="btn btn-primary bg-light-green">{{#postIsLikedByUser userId=currentUser._id
+        likes=post.likes}} No me gusta {{else}} Me gusta {{/postIsLikedByUser}}</button>
+    </form>
   </div>
 </div>

@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 const Post = require('../models/Post.model'); 
 
-module.exports.list = function(req, res, next) {
+module.exports.list = function (req, res, next) {
   Post.find()
-      .populate('user')
-      .then(posts => res.render("recepies/feed", { posts }))
-      .catch(error => next(error));
-}
+    .populate("user")
+    .populate("likes")
+    .then((posts) => {
+      res.render("recepies/feed", { posts });
+    })
+    .catch((error) => next(error));
+};
 
 
 module.exports.create = (req, res, next) => {
