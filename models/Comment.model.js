@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const CommentSchema = mongoose.Schema({
 
     content: {
@@ -12,12 +11,12 @@ const CommentSchema = mongoose.Schema({
         ref: "User",
         required: true,
     },
-    recepie: {
+    post: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Recepie",
+        ref: "Post",
         required: true,
     }
-})
+});
 
 const Comment = mongoose.model("Comment", CommentSchema);
 

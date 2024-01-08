@@ -4,11 +4,11 @@
     <p>{{post.user.username}}</p>
     <h5 class="card-title">{{post.name}}</h5>
     <p class="card-text">{{post.restaurant}}</p>
-    <a href="#" class="btn btn-primary">See More</a>
+    <a href="/post/{{post._id}}" class="btn btn-primary">See More</a>
     {{currentUser.username}}
     <form action="/feed/{{post._id}}/like" method="POST">
       <button type="submit" class="btn btn-primary bg-light-green">{{#postIsLikedByUser userId=currentUser._id
         likes=post.likes}} No me gusta {{else}} Me gusta {{/postIsLikedByUser}}</button>
     </form>
   </div>
-</div> 
+</div>

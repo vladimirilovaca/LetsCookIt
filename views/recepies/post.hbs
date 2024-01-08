@@ -1,9 +1,14 @@
 <div>
     <img src="{{post.image}}" class="card-img-top" alt="...">
-       <p>{{post.user.username}}</p>
+    <p>{{post.name}}</p>
+    <p>{{post.user.username}}</p>
     <h5 class="card-title">{{post.name}}</h5>
-    <p class="card-text">{{post.restaurant}}</p> 
-</div> 
-<form action="#" method="POST">
-
+    <p class="card-text">{{post.restaurant}}</p>
+</div>
+<form action="/comments/{{_id}}/create" method="POST">
+    <div class="mb-3">
+        <label for="comment" class="form-label">Comment</label>
+        <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Comment</button>
 </form>

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const Post = require('../models/Post.model'); 
+const Comment = require('../models/Comment.model');
+const Post = require('../models/Post.model');
 
 module.exports.list = function (req, res, next) {
   Post.find()
@@ -12,24 +13,46 @@ module.exports.list = function (req, res, next) {
 };
 
 
+
+
 module.exports.create = (req, res, next) => {
   res.render('recepies/new-post');
 };
 
 module.exports.doCreate = (req, res, next) => {
   console.log(req.body)
-    if (req.file) {
-      req.body.image = req.file.path
-    }
-    req.body.user = req.session.currentUser._id
-    Post.create(req.body)
+  if (req.file) {
+    req.body.image = req.file.path
+  }
+  req.body.user = req.session.currentUser._id
+  Post.create(req.body)
     .then(() => {
       res.redirect("/feed")
     })
     .catch(error => next(error));
 
-    
 
 
 
+
+}
+
+module.exports.details = (req, res, next) => {
+  const { id } = req.params;
+
+  Post.findById(id)
+    .populate({
+      path: 'comments',
+      populate: {
+        path: 'user',
+      }
+    })
+    .then(post => {
+      if (post) {
+        res.render('recepies/post', { post });
+      } else {
+        res.redirect('/feed');
+      }
+    })
+    .catch(next)
 }
