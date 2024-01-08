@@ -32,7 +32,7 @@ PostSchema.virtual("likes", {
 PostSchema.virtual("comments", {
     ref: "Comment",
     localField: "_id",
-    foreignField: "like",
+    foreignField: "post",
     justOne: false,
 });
 
