@@ -5,10 +5,16 @@
     <h5 class="card-title">{{post.name}}</h5>
     <p class="card-text">{{post.restaurant}}</p>
 </div>
-<form action="/comments/{{_id}}/create" method="POST">
+<form action="/post/{{post._id}}" method="POST">
     <div class="mb-3">
         <label for="comment" class="form-label">Comment</label>
         <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
     </div>
     <button type="submit" class="btn btn-success">Comment</button>
 </form>
+
+<div>
+    {{#each post.comments}}
+    <div>{{this.user.username}}: {{this.content}}</div>
+    {{/each}}
+</div>

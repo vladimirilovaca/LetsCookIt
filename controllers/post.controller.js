@@ -30,11 +30,6 @@ module.exports.doCreate = (req, res, next) => {
       res.redirect("/feed")
     })
     .catch(error => next(error));
-
-
-
-
-
 }
 
 module.exports.details = (req, res, next) => {
@@ -53,6 +48,21 @@ module.exports.details = (req, res, next) => {
       } else {
         res.redirect('/feed');
       }
+    })
+    .catch(next)
+}
+
+module.exports.reCreate = (req, res, next) => {
+  console.log(req.body);
+  console.log(req.session.currentUser);
+
+  const commentToCreate = req.body;
+  commentToCreate.user = req.session.currentUser._id;
+  commentToCreate.post = req.params.id;
+
+  Comment.create(req.body)
+    .then(post => {
+      res.redirect(`/post/${req.params.id}`);
     })
     .catch(next)
 }
