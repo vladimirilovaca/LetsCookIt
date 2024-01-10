@@ -26,7 +26,9 @@ router.get("/activate/:token", authController.activate);
 router.get("/newpost", authMiddleware.isAuthenticated, postController.create);
 router.post("/newpost", authMiddleware.isAuthenticated, postController.doCreate);
 router.get("/post/:id", authMiddleware.isAuthenticated, postController.details);
-router.post("/post/:id", authMiddleware.isAuthenticated, postController.reCreate);
+router.post("/post/:id", authMiddleware.isAuthenticated, postController.reCreate); 
+router.get("/edit/:id", authMiddleware.isAuthenticated, postController.getEdit);
+router.post("/edit/:id", authMiddleware.isAuthenticated, postController.doEdit); 
 
 
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));

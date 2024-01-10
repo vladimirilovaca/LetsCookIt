@@ -7,3 +7,13 @@ module.exports.postIsLikedByUser = function (options) {
     return options.inverse(this);
   }
 };
+
+module.exports.isOwnedByUser = function (options) {
+  const { currentUserId, postOwnerId } = options.hash;
+
+  if (currentUserId.toString() === postOwnerId.toString()) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+};

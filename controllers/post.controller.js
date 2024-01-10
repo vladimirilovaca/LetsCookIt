@@ -12,9 +12,6 @@ module.exports.list = function (req, res, next) {
     .catch((error) => next(error));
 };
 
-
-
-
 module.exports.create = (req, res, next) => {
   res.render('recepies/new-post');
 };
@@ -65,4 +62,25 @@ module.exports.reCreate = (req, res, next) => {
       res.redirect(`/post/${req.params.id}`);
     })
     .catch(next)
-}
+} 
+
+module.exports.getEdit = (req, res, next) => { 
+  const id = req.params.id;
+
+  Post.findById(id)
+    .then((post) => {
+      res.render("recepies/edit-post" , {post})
+    })
+    .catch((err) => next(err));
+
+}; 
+
+module.exports.doEdit = (req, res, next) => {
+  const id = req.params.id;
+
+  Post.findByIdAndUpdate(id, req.body, { new: true })
+    .then((post) => {
+      res.redirect(`/post/${post._id}`);
+    })
+    .catch((err) => next(err));
+};

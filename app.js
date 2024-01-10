@@ -10,8 +10,10 @@ require("./config/passport.config");
 
 const app = express();
 
-const { postIsLikedByUser } = require("./helpers");
+const { postIsLikedByUser, isOwnedByUser } = require("./helpers");
 hbs.registerHelper("postIsLikedByUser", postIsLikedByUser);
+hbs.registerHelper("isOwnedByUser", isOwnedByUser);
+
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));

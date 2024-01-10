@@ -4,6 +4,9 @@
     <p>{{post.user.username}}</p>
     <h5 class="card-title">{{post.name}}</h5>
     <p class="card-text">{{post.restaurant}}</p>
+    {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
+      <a href="/edit/{{post._id}}" class="btn btn-success">Edit</a>
+    {{/isOwnedByUser}}
 </div>
 <form action="/post/{{post._id}}" method="POST">
     <div class="mb-3">
