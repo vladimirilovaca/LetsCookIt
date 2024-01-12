@@ -1,8 +1,10 @@
 const user = [{
     username: "Luchita",
     email: "luchita@letscookit.com",
+    image:"/public/images/Luchitta.jpg",
     password: "12345678",
     isActive: true,
+    bio: "I can cook with my wand. Common Ron, the correct way to said it is wingardium leviosa"
 }];
 
 const mongoose = require('mongoose');

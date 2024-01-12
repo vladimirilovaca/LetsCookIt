@@ -16,8 +16,8 @@
     <input type="file" class="form-control" id="inputGroupFile02" />
     <label class="input-group-text" for="inputGroupFile02">Profile Image</label>
   </div>
-   <div class="mb-3">
-    <label for="retaurant" class="form-label">E-mail</label>
+    <div class="mb-3">
+    <label for="email" class="form-label">E-mail</label>
     <input
       value="{{user.email}}"
       type="text"
@@ -27,6 +27,18 @@
       placeholder="E-mail"
     />
   </div>
+   <div class="mb-3">
+    <label for="bio" class="form-label">Bio</label>
+    <input
+      value="{{user.bio}}"
+      type="text"
+      name="bio"
+      id="EmailTextInput"
+      class="form-control"
+      placeholder="Type your Bio"
+    />
+  </div>
+  
   <button type="submit" class="btn btn-primary">Update</button>
   <a href="#" class="btn btn-primary">Delete Accont</a>
 </form> 
