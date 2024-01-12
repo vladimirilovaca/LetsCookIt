@@ -39,6 +39,8 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
 
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 router.get("/profile/:id", authMiddleware.isAuthenticated, usersController.userProfile);
+router.get("/profile/edit/:id", authMiddleware.isAuthenticated, usersController.getEdit);
+router.post("/profile/edit/:id", authMiddleware.isAuthenticated, usersController.doEdit);
 
 router.get("/feed", authMiddleware.isAuthenticated, postController.list);
 

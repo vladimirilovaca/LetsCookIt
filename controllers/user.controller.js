@@ -17,4 +17,25 @@ module.exports.userProfile = (req, res, next) => {
         res.render("users/users-profile", { user });
     })
     .catch()
-}
+} 
+
+module.exports.getEdit = (req, res, next) => { 
+    const id = req.params.id;
+  
+    User.findById(id)
+      .then((user) => {
+        res.render("users/edit" , {user})
+      })
+      .catch((err) => next(err));
+  
+  }; 
+  
+  module.exports.doEdit = (req, res, next) => {
+    const id = req.params.id;
+  
+    User.findByIdAndUpdate(id, req.body, { new: true })
+      .then(() => {
+        res.redirect("/profile");
+      })
+      .catch((err) => next(err));
+  };
