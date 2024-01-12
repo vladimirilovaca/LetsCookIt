@@ -5,26 +5,26 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h4 class="card-title">{{currentUser.username}}</h4>
+        <h4 class="card-title">{{user.username}}</h4>
         <p class="card-text">Bio:</p>
-        <p class="card-text"><small class="text-body-secondary">Email: {{currentUser.email}}</small></p>
+        <p class="card-text"><small class="text-body-secondary">Email: {{user.email}}</small></p>
       </div>
     </div>
   </div>
 </div>
 
+//No aparecen los post de los usuarios.
 <div class="container my-5">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {{#each user.posts}}
       {{>card post=this currentUser=../currentUser}}
     {{/each}}
   </div>
-</div> 
-
+</div>
 
 <!--<div class="profile-page">
     <div class="container profile-container">
-        <h1>{{currentUser.username}}</h1>
+        <h1>{{user.username}}</h1>
 
         <img class="profile-image" src="https://picsum.photos/150" alt="Profile Image">
 
@@ -32,6 +32,6 @@
             <i class="fas fa-user-circle"></i>
         </div>
 
-        <h2>Email: {{currentUser.email}}</h2>
+        <h2>Email: {{user.email}}</h2>
     </div> 
 </div>-->

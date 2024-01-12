@@ -15,27 +15,30 @@ const GOOGLE_SCOPES = [
 router.get("/", (req, res, next) => {
     res.render("home");
 });
-
+//Login
 router.get("/login", authMiddleware.isNotAuthenticated, authController.login);
 router.post("/login", authMiddleware.isNotAuthenticated, authController.doLogin);
 router.get("/register", authMiddleware.isNotAuthenticated, authController.register);
 router.post("/register", authMiddleware.isNotAuthenticated, authController.doRegister);
 router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
 router.get("/activate/:token", authController.activate);
-
+//Post
 router.get("/newpost", authMiddleware.isAuthenticated, postController.create);
 router.post("/newpost", authMiddleware.isAuthenticated, postController.doCreate);
 router.get("/post/:id", authMiddleware.isAuthenticated, postController.details);
 router.post("/post/:id", authMiddleware.isAuthenticated, postController.reCreate); 
 router.get("/edit/:id", authMiddleware.isAuthenticated, postController.getEdit);
 router.post("/edit/:id", authMiddleware.isAuthenticated, postController.doEdit); 
-
+//Delte
+router.get("/post/:id/postDelete", authMiddleware.isAuthenticated, postController.deletePost);
+router.get("/post/:id/commentDelete", authMiddleware.isAuthenticated, postController.deleComment);
 
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
 
 
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
+router.get("/profile/:id", authMiddleware.isAuthenticated, usersController.userProfile);
 
 router.get("/feed", authMiddleware.isAuthenticated, postController.list);
 

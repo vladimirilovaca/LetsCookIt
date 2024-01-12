@@ -9,3 +9,12 @@ module.exports.profile = (req, res, next) => {
     .catch()
     
 }
+
+module.exports.userProfile = (req, res, next) => {
+    const id = req.params.id;
+    User.findById(id) 
+    .then((user) => {
+        res.render("users/users-profile", { user });
+    })
+    .catch()
+}

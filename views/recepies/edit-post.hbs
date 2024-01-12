@@ -1,6 +1,6 @@
 <form action="/edit/{{post._id}}" method="POST">
 
-  <legend>Create a new Post</legend>
+  <legend>Edit Post</legend>
   <div class="mb-3">
     <label for="name" class="form-label">Recepie Name</label>
     <input
@@ -51,8 +51,23 @@
     </select>
   </div>
   <button type="submit" class="btn btn-primary">Update</button>
+  <a href="/post/{{post._id}}/postDelete" class="btn btn-primary">Delete Post</a>
+</form> 
 
-</form>
+//Aqui va el final comment
+
+<div class="card" style="max-width: 540px;">
+    {{#each post.comments}}
+  <div class="card-header">
+    {{this.user.username}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Comenta:</h5>
+    <p class="card-text">{{this.content}}</p>
+    <a href="/post/{{this._id}}/commentDelete" class="btn btn-primary">Delete Comment</a>
+  </div>
+  {{/each}}
+</div>
 
 <script>
   let selectedCategory = "{{post.category}}"; 

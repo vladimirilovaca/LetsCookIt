@@ -1,4 +1,4 @@
-<div>
+<!--<div>
     <img src="{{post.image}}" class="card-img-top" alt="...">
     <p>{{post.name}}</p>
     <p>{{post.user.username}}</p>
@@ -8,8 +8,29 @@
     {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
       <a href="/edit/{{post._id}}" class="btn btn-success">Edit</a>
     {{/isOwnedByUser}}
+</div>-->
+
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{post.image}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{post.name}}</h5>
+        <p class="card-text">{{post.restaurant}}</p>
+        <p class="card-text">{{post.category}}</p>
+        <p class="card-text"><small class="text-body-secondary">Aqui va la receta</small></p>
+        <pclass="card-text">{{post.user.username}}</p>
+        {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
+        <a href="/edit/{{post._id}}" class="btn btn-success">Edit</a>
+        {{/isOwnedByUser}}
+      </div>
+    </div>
+  </div>
 </div>
-<form action="/post/{{post._id}}" method="POST">
+
+<form action="/post/{{post._id}}" method="POST" style="max-width: 540px;">
     <div class="mb-3">
         <label for="comment" class="form-label">Comment</label>
         <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
@@ -17,8 +38,21 @@
     <button type="submit" class="btn btn-success">Comment</button>
 </form>
 
-<div>
+<!--<div>
     {{#each post.comments}}
     <div>{{this.user.username}}: {{this.content}}</div>
     {{/each}}
+</div>-->
+
+<div class="card" style="max-width: 540px;">
+    {{#each post.comments}}
+  <div class="card-header">
+    {{this.user.username}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Comenta:</h5>
+    <p class="card-text">{{this.content}}</p>
+    <a href="/post/{{this._id}}/commentDelete" class="btn btn-primary">Delete Comment</a>
+  </div>
+  {{/each}}
 </div>

@@ -84,3 +84,24 @@ module.exports.doEdit = (req, res, next) => {
     })
     .catch((err) => next(err));
 };
+
+module.exports.deletePost = (req, res, next) => {
+  const id = req.params.id;
+ 
+  Post.findByIdAndDelete(id) 
+     .then(() => {
+       res.redirect(`/feed`)
+     })
+     .catch((err) => next(err));
+ }
+
+ //Chequear que no redirecciona a donde debe,lo manda al feed
+module.exports.deleComment = (req, res, next) => {
+ const id = req.params.id;
+
+ Comment.findByIdAndDelete(id) 
+    .then((post) => {
+      res.redirect(`/post/${post._id}`)
+    })
+    .catch((err) => next(err));
+}
