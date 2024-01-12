@@ -1,27 +1,15 @@
-<form action="/post/{{post._id}}" method="POST">
+<form action="/edit/{{post._id}}" method="POST">
 
   <legend>Create a new Post</legend>
   <div class="mb-3">
     <label for="name" class="form-label">Recepie Name</label>
-    <input
-      value="{{post.name}}"
-      type="text"
-      name="name"
-      id="recepieNameTextInput"
-      class="form-control"
-      placeholder="Recepie Name"
-    />
+    <input value="{{post.name}}" type="text" name="name" id="recepieNameTextInput" class="form-control"
+      placeholder="Recepie Name" />
   </div>
   <div class="mb-3">
     <label for="retaurant" class="form-label">Restaurant Name</label>
-    <input
-        value="{{post.restaurant}}"
-      type="text"
-      name="restaurant"
-      id="RestaurantNameTextInput"
-      class="form-control"
-      placeholder="Restaurant Name"
-    />
+    <input value="{{post.restaurant}}" type="text" name="restaurant" id="RestaurantNameTextInput" class="form-control"
+      placeholder="Restaurant Name" />
   </div>
   <div class="input-group mb-3">
     <input type="file" class="form-control" id="inputGroupFile02" />
@@ -29,11 +17,7 @@
   </div>
   <div class="mb-3">
     <label for="disabledSelect" class="form-label">Category</label>
-    <select
-      class="form-select"
-      name="category"
-      aria-label="Default select example"
-    >
+    <select class="form-select" name="category" aria-label="Default select example">
       <option selected>Select One</option>
       <option value="Meat">Meat</option>
       <option value="Chicken">Chicken</option>

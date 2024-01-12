@@ -16,3 +16,126 @@
     <!-- Add any call-to-action buttons or elements here -->
   </div>
 </section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: white;
+  }
+
+  .scroll-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+  }
+
+  .main-scroll-div {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .cover {
+    position: relative;
+    width: 90%;
+    height: 50%;
+  }
+
+  .cover::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    z-index: 99;
+    height: 119%;
+    width: 150px;
+    background-image: linear-gradient(90deg, white, transparent);
+  }
+
+  .cover::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    z-index: 99;
+    height: 119%;
+    width: 150px;
+    background-image: linear-gradient(-90deg, white, transparent);
+  }
+
+  .scroll-images {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow: auto;
+    position: relative;
+
+  }
+
+  .child {
+    min-width: 600px;
+    height: 450px;
+    margin: 1px 10px;
+    cursor: pointer;
+    border: 1px solid white;
+    overflow: hidden;
+  }
+
+  .scroll-images::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  .child-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .icon {
+    color: rgb(67, 247, 76);
+    font-size: 40px;
+    outline: none;
+    border: none;
+    padding: opx 20px;
+    cursor: pointer;
+  }
+</style>
+<div class="scroll-container">
+  <div class="main-scroll-div">
+    <div>
+      <button class="icon" onclick="scrolll()"><i class=" fas fa-angle-double-left"></i></button>
+    </div>
+    <div class="cover">
+      <div class="scroll-images" id="imageContainer">
+        <div class="child"><img class="child-img" src="/images/carbonara.jpg" alt="image"></div>
+        <div class="child"><img class="child-img" src="/images/chocolat-cake.jpg" alt="image"></div>
+        <div class="child"><img class="child-img" src="/images/greek-salad.jpg" alt="image"></div>
+        <div class="child"><img class="child-img" src="/images/salmon.jpg" alt="image"></div>
+        <div class="child"><img class="child-img" src="/images/vegetarian.jpg" alt="image"></div>
+      </div>
+    </div>
+    <div>
+      <button class="icon" onclick="scrollr()"><i class="fas fa-angle-double-right"></i></button>
+    </div>
+  </div>
+  <script>
+    function scrolll() {
+      let container = document.getElementById("imageContainer");
+      container.scrollLeft += 350;
+    }
+
+    function scrollr() {
+      let container = document.getElementById("imageContainer");
+      container.scrollLeft -= 350;
+    }
+  </script>
+</div>
