@@ -24,6 +24,7 @@
         <pclass="card-text">{{post.user.username}}</p>
         {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
         <a href="/edit/{{post._id}}" class="btn btn-success">Edit</a>
+        <a href="/recipe/{{post._id}}" class="btn btn-success">Add Recipe</a>
         {{/isOwnedByUser}}
       </div>
     </div>

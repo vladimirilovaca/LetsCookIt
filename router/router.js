@@ -30,6 +30,9 @@ router.get("/post/:id", authMiddleware.isAuthenticated, postController.details);
 router.post("/post/:id", authMiddleware.isAuthenticated, postController.reCreate);
 router.get("/edit/:id", authMiddleware.isAuthenticated, postController.getEdit);
 router.post("/edit/:id", authMiddleware.isAuthenticated, upload.single('image'), postController.doEdit);
+//Recipe
+router.get("/recipe/:postId", authMiddleware.isAuthenticated, postController.createRecipe);
+router.post("/recipe/:postId", authMiddleware.isAuthenticated, postController.doCreateRecipe);
 //Delte
 router.get("/post/:id/postDelete", authMiddleware.isAuthenticated, postController.deletePost);
 router.get("/post/:id/commentDelete", authMiddleware.isAuthenticated, postController.deleteComment);

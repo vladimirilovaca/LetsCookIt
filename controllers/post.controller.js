@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Comment = require('../models/Comment.model');
 const Post = require('../models/Post.model');
+const Recipe = require('../models/Recipe.model')
 
 module.exports.list = function (req, res, next) {
   Post.find()
@@ -107,3 +108,21 @@ module.exports.deleteComment = (req, res, next) => {
     })
     .catch((err) => next(err));
 }
+
+module.exports.createRecipe = (req, res, next) => {
+  const { postId } = req.params;
+  res.render('recepies/new-recipe', { postId });
+}; 
+
+module.exports.doCreateRecipe = (req, res, next) => {
+  const { postId } = req.params;
+
+  req.body.user = req.session.currentUser;
+  req.body.post = postId;
+
+  Recipe.create(req.body)
+    .then((createdRecipe) => {
+      res.redirect(`/post/${createdRecipe.post}`)
+    })
+    .catch((err) => next(err));
+};
