@@ -38,7 +38,7 @@ PostSchema.virtual("comments", {
     justOne: false,
 });
 
-PostSchema.virtual("recipe", {
+PostSchema.virtual("recipes", {
     ref: "Recipe",
     localField: "_id",
     foreignField: "post",

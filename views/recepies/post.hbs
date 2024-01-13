@@ -31,6 +31,25 @@
   </div>
 </div>
 
+{{#each post.recipes}} 
+<div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Ingridients</h5>
+    <ul>
+        {{#each this.ingredients}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+  </div>
+</div>
+<div class="card text-bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Instructions</h5>
+    <p class="card-text">{{this.instructions}}</p>
+  </div>
+</div>
+{{/each}}
+
 {{!-- Aqui va el final comment --}}
 <form action="/post/{{post._id}}" method="POST" >
   <textarea id="myTextarea" name="content"></textarea>
