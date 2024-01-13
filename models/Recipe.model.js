@@ -1,8 +1,12 @@
 const mongoose = require("mongoose"); 
 
 const RecipeSchema = mongoose.Schema({
-
-    content: {
+    
+    ingredients: {
+        type: [String],
+        required: true,
+    },
+    instructions: {
         type: String,
         required: true,
     },
