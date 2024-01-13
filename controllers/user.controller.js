@@ -33,10 +33,13 @@ module.exports.getEdit = (req, res, next) => {
   
   module.exports.doEdit = (req, res, next) => {
     const id = req.params.id;
-
-    if (req.body.bio) {
-      req.body.bio = req.body.bio.trim();
+    if (req.file) {
+      req.body.image = req.file.path;
     }
+
+    /*if (req.body.bio) {
+      req.body.bio = req.body.bio.trim();
+    }*/
   
     User.findByIdAndUpdate(id, req.body, { new: true })
       .then((updatedUser) => {
