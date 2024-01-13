@@ -20,11 +20,11 @@
         <h5 class="card-title">{{post.name}}</h5>
         <p class="card-text">{{post.restaurant}}</p>
         <p class="card-text">{{post.category}}</p>
-        <p class="card-text"><small class="text-body-secondary">Aqui va la receta</small></p>
         <pclass="card-text">{{post.user.username}}</p>
         {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
         <a href="/edit/{{post._id}}" class="btn btn-success">Edit</a>
         <a href="/recipe/{{post._id}}" class="btn btn-success">Add Recipe</a>
+        <a href="#" class="btn btn-success">Edit Recipe</a>
         {{/isOwnedByUser}}
       </div>
     </div>
@@ -63,8 +63,9 @@
     {{/each}}
 </div>-->
 
-<div class="card" style="max-width: 540px;">
-    {{#each post.comments}}
+
+{{#each post.comments}}
+<div class="card" style="max-width: 540px;"></div>
   <div class="card-header">
     {{this.user.username}}
   </div>
@@ -73,8 +74,9 @@
     <div>{{{this.content}}}</div>
     <a href="/post/{{this._id}}/commentDelete" class="btn btn-primary">Delete Comment</a>
   </div>
-  {{/each}}
 </div>
+{{/each}}
+
 
 <script src="/js/tinymce/tinymce.min.js"></script>
 
