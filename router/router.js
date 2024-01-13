@@ -6,6 +6,7 @@ const authMiddleware = require("../middlewares/auth.middlewares");
 const postController = require("../controllers/post.controller");
 const likeController = require("../controllers/like.controller");
 const passport = require('passport');
+const upload = require("../config/cloudinary.config")
 
 const GOOGLE_SCOPES = [
     'https://www.googleapis.com/auth/userinfo.email',
@@ -24,14 +25,14 @@ router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
 router.get("/activate/:token", authController.activate);
 //Post
 router.get("/newpost", authMiddleware.isAuthenticated, postController.create);
-router.post("/newpost", authMiddleware.isAuthenticated, postController.doCreate);
+router.post("/newpost", authMiddleware.isAuthenticated, upload.single('image'), postController.doCreate);
 router.get("/post/:id", authMiddleware.isAuthenticated, postController.details);
-router.post("/post/:id", authMiddleware.isAuthenticated, postController.reCreate); 
+router.post("/post/:id", authMiddleware.isAuthenticated, postController.reCreate);
 router.get("/edit/:id", authMiddleware.isAuthenticated, postController.getEdit);
-router.post("/edit/:id", authMiddleware.isAuthenticated, postController.doEdit); 
+router.post("/edit/:id", authMiddleware.isAuthenticated, postController.doEdit);
 //Delte
 router.get("/post/:id/postDelete", authMiddleware.isAuthenticated, postController.deletePost);
-router.get("/post/:id/commentDelete", authMiddleware.isAuthenticated, postController.deleComment);
+router.get("/post/:id/commentDelete", authMiddleware.isAuthenticated, postController.deleteComment);
 
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)

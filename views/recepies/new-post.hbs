@@ -1,28 +1,17 @@
-<form action="/newpost" method="POST">
+<form action="/newpost" method="POST" enctype="multipart/form-data">
 
   <legend>Create a new Post</legend>
   <div class="mb-3">
     <label for="name" class="form-label">Recepie Name</label>
-    <input
-      type="text"
-      name="name"
-      id="recepieNameTextInput"
-      class="form-control"
-      placeholder="Recepie Name"
-    />
+    <input type="text" name="name" id="recepieNameTextInput" class="form-control" placeholder="Recepie Name" />
   </div>
   <div class="mb-3">
     <label for="retaurant" class="form-label">Restaurant Name</label>
-    <input
-      type="text"
-      name="restaurant"
-      id="RestaurantNameTextInput"
-      class="form-control"
-      placeholder="Restaurant Name"
-    />
+    <input type="text" name="restaurant" id="RestaurantNameTextInput" class="form-control"
+      placeholder="Restaurant Name" />
   </div>
   <div class="input-group mb-3">
-    <input type="file" class="form-control" id="inputGroupFile02" />
+    <input type="file" name="image" class="form-control" id="inputGroupFile02" />
     <label class="input-group-text" for="inputGroupFile02">Image</label>
   </div>
   <div class="mb-3">
