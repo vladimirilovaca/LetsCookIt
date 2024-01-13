@@ -77,6 +77,9 @@ module.exports.getEdit = (req, res, next) => {
 
 module.exports.doEdit = (req, res, next) => {
   const id = req.params.id;
+  if (req.file) {
+    req.body.image = req.file.path;
+  }
 
   Post.findByIdAndUpdate(id, req.body, { new: true })
     .then((post) => {

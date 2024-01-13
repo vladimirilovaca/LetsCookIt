@@ -1,4 +1,4 @@
-<form action="/edit/{{post._id}}" method="POST">
+<form action="/edit/{{post._id}}" method="POST" enctype="multipart/form-data">
 
   <legend>Edit Post</legend>
   <div class="mb-3">
@@ -24,7 +24,13 @@
     />
   </div>
   <div class="input-group mb-3">
-    <input type="file" class="form-control" id="inputGroupFile02" />
+    <input
+      type="file"
+      name="image"
+      class="form-control"
+      id="inputGroupFile02"
+      value="{{post.image}}"
+    />
     <label class="input-group-text" for="inputGroupFile02">Image</label>
   </div>
   <div class="mb-3">
@@ -52,24 +58,25 @@
   </div>
   <button type="submit" class="btn btn-primary">Update</button>
   <a href="/post/{{post._id}}/postDelete" class="btn btn-primary">Delete Post</a>
-</form> 
+</form>
 
 //Aqui va el final comment
 
 <div class="card" style="max-width: 540px;">
-    {{#each post.comments}}
-  <div class="card-header">
-    {{this.user.username}}
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Comenta:</h5>
-    <p class="card-text">{{this.content}}</p>
-    <a href="/post/{{this._id}}/commentDelete" class="btn btn-primary">Delete Comment</a>
-  </div>
+  {{#each post.comments}}
+    <div class="card-header">
+      {{this.user.username}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Comenta:</h5>
+      <p class="card-text">{{this.content}}</p>
+      <a href="/post/{{this._id}}/commentDelete" class="btn btn-primary">Delete
+        Comment</a>
+    </div>
   {{/each}}
 </div>
 
 <script>
-  let selectedCategory = "{{post.category}}"; 
+  let selectedCategory = "{{post.category}}";
   document.getElementById('categorySelect').value = selectedCategory;
 </script>

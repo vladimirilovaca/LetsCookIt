@@ -29,7 +29,7 @@ router.post("/newpost", authMiddleware.isAuthenticated, upload.single('image'), 
 router.get("/post/:id", authMiddleware.isAuthenticated, postController.details);
 router.post("/post/:id", authMiddleware.isAuthenticated, postController.reCreate);
 router.get("/edit/:id", authMiddleware.isAuthenticated, postController.getEdit);
-router.post("/edit/:id", authMiddleware.isAuthenticated, postController.doEdit);
+router.post("/edit/:id", authMiddleware.isAuthenticated, upload.single('image'), postController.doEdit);
 //Delte
 router.get("/post/:id/postDelete", authMiddleware.isAuthenticated, postController.deletePost);
 router.get("/post/:id/commentDelete", authMiddleware.isAuthenticated, postController.deleteComment);
@@ -37,11 +37,11 @@ router.get("/post/:id/commentDelete", authMiddleware.isAuthenticated, postContro
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
 
-
+//profile
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 router.get("/profile/:id", authMiddleware.isAuthenticated, usersController.userProfile);
 router.get("/profile/edit/:id", authMiddleware.isAuthenticated, usersController.getEdit);
-router.post("/profile/edit/:id", authMiddleware.isAuthenticated, usersController.doEdit);
+router.post("/profile/edit/:id", authMiddleware.isAuthenticated, upload.single('image'), usersController.doEdit);
 
 router.get("/feed", authMiddleware.isAuthenticated, postController.list);
 
