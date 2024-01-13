@@ -38,6 +38,13 @@ PostSchema.virtual("comments", {
     justOne: false,
 });
 
+PostSchema.virtual("recipe", {
+    ref: "Recipe",
+    localField: "_id",
+    foreignField: "post",
+    justOne: false,
+});
+
 const Post = mongoose.model('Post', PostSchema);
 
 module.exports = Post;
