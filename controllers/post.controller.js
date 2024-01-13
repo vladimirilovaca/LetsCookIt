@@ -62,18 +62,18 @@ module.exports.reCreate = (req, res, next) => {
       res.redirect(`/post/${req.params.id}`);
     })
     .catch(next)
-} 
+}
 
-module.exports.getEdit = (req, res, next) => { 
+module.exports.getEdit = (req, res, next) => {
   const id = req.params.id;
 
   Post.findById(id)
     .then((post) => {
-      res.render("recepies/edit-post" , {post})
+      res.render("recepies/edit-post", { post })
     })
     .catch((err) => next(err));
 
-}; 
+};
 
 module.exports.doEdit = (req, res, next) => {
   const id = req.params.id;
@@ -87,18 +87,18 @@ module.exports.doEdit = (req, res, next) => {
 
 module.exports.deletePost = (req, res, next) => {
   const id = req.params.id;
- 
-  Post.findByIdAndDelete(id) 
-     .then(() => {
-       res.redirect(`/feed`)
-     })
-     .catch((err) => next(err));
- }
 
-module.exports.deleComment = (req, res, next) => {
- const id = req.params.id;
+  Post.findByIdAndDelete(id)
+    .then(() => {
+      res.redirect(`/feed`)
+    })
+    .catch((err) => next(err));
+}
 
- Comment.findByIdAndDelete(id) 
+module.exports.deleteComment = (req, res, next) => {
+  const id = req.params.id;
+
+  Comment.findByIdAndDelete(id)
     .then((comment) => {
       res.redirect(`/post/${comment.post}`)
     })
