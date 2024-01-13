@@ -1,0 +1,35 @@
+<form action="/recipe/edit/{{post._id}}" class="row g-3" method="POST">
+    {{#each post.recipes}}
+        <div class="mb-3" id="inputs-container">
+            <label for="formGroupExampleInput" class="form-label">Ingredients:</label>
+            {{#each this.ingredients}}
+                <input type="text" class="form-control mb-2" name="ingredients[]" value="{{this}}" placeholder="Ingredient">
+            {{/each}}
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="instructions">{{this.instructions}}</textarea>
+            <label for="floatingTextarea2">Instructions</label>
+        </div>
+    {{/each}}
+
+    <button class="btn btn-primary" id="add-ingredient">Add ingredient</button>
+    <button type="submit" class="btn btn-primary">Update Recipe</button>
+</form>
+
+<script>
+    const addIngredientBtn = document.querySelector("#add-ingredient");
+    const inputsContainer = document.querySelector("#inputs-container");
+
+    addIngredientBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const newInput = document.createElement("input");
+        newInput.setAttribute("type", "text");
+        newInput.setAttribute("class", "form-control  mb-2");
+        newInput.setAttribute("name", "ingredients[]");
+        newInput.setAttribute("id", "formGroupExampleInput");
+        newInput.setAttribute("placeholder", "Ingredient");
+
+        inputsContainer.append(newInput);
+    })
+</script>

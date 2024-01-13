@@ -24,7 +24,7 @@
         {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
         <a href="/edit/{{post._id}}" class="btn btn-success">Edit</a>
         <a href="/recipe/{{post._id}}" class="btn btn-success">Add Recipe</a>
-        <a href="#" class="btn btn-success">Edit Recipe</a>
+        <a href="/recipe/edit/{{post._id}}" class="btn btn-success">Edit Recipe</a>
         {{/isOwnedByUser}}
       </div>
     </div>
@@ -65,7 +65,7 @@
 
 
 {{#each post.comments}}
-<div class="card" style="max-width: 540px;"></div>
+<div class="card" style="max-width: 540px;">
   <div class="card-header">
     {{this.user.username}}
   </div>
