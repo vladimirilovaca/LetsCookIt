@@ -30,12 +30,11 @@
   </div>
 </div>
 
-<form action="/post/{{post._id}}" method="POST" style="max-width: 540px;">
-    <div class="mb-3">
-        <label for="comment" class="form-label">Comment</label>
-        <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-success">Comment</button>
+{{!-- Aqui va el final comment --}}
+<form action="/post/{{post._id}}" method="POST" >
+  <textarea id="myTextarea" name="content"></textarea>
+
+  <button type="submit" class="btn btn-success">Create Comment</button>
 </form>
 
 <!--<div>
@@ -51,8 +50,16 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">Comenta:</h5>
-    <p class="card-text">{{this.content}}</p>
+    <div>{{{this.content}}}</div>
     <a href="/post/{{this._id}}/commentDelete" class="btn btn-primary">Delete Comment</a>
   </div>
   {{/each}}
 </div>
+
+<script src="/js/tinymce/tinymce.min.js"></script>
+
+<script>
+  tinymce.init({
+    selector: '#myTextarea'
+  });
+</script>
