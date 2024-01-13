@@ -33,6 +33,8 @@ router.post("/edit/:id", authMiddleware.isAuthenticated, upload.single('image'),
 //Recipe
 router.get("/recipe/:postId", authMiddleware.isAuthenticated, postController.createRecipe);
 router.post("/recipe/:postId", authMiddleware.isAuthenticated, postController.doCreateRecipe);
+router.get("/recipe/edit/:postId", authMiddleware.isAuthenticated, postController.editRecipe);
+router.post("/recipe/edit/:postId", authMiddleware.isAuthenticated, postController.doEditRecipe);
 //Delte
 router.get("/post/:id/postDelete", authMiddleware.isAuthenticated, postController.deletePost);
 router.get("/post/:id/commentDelete", authMiddleware.isAuthenticated, postController.deleteComment);

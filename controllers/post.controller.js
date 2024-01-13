@@ -127,3 +127,27 @@ module.exports.doCreateRecipe = (req, res, next) => {
     })
     .catch((err) => next(err));
 };
+
+module.exports.editRecipe = (req, res, next) => {
+  const { postId } = req.params; 
+
+  Post.findById(postId)
+      .populate('recipes')
+      .then ( (post) => {
+        res.render('recepies/recipe-edit', { post })
+      })
+      .catch((err) => next(err));
+}
+
+module.exports.doEditRecipe = (req, res, next) => {
+  const { postId } = req.params;
+
+  req.body.user = req.session.currentUser;
+  req.body.post = postId;
+
+  Recipe.findOneAndUpdate({ post: postId }, req.body, { new: true, upsert: true })
+      .then((updatedRecipe) => {
+          res.redirect(`/post/${updatedRecipe.post._id}`);
+      })
+      .catch((err) => next(err));
+};
