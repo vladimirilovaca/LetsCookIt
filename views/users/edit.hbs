@@ -1,4 +1,4 @@
-<form action="/edit/{{user._id}}" method="POST">
+<form action="/profile/edit/{{user._id}}" method="POST">
 
   <legend>Edit Profile</legend>
   <div class="mb-3">
@@ -16,29 +16,18 @@
     <input type="file" class="form-control" id="inputGroupFile02" />
     <label class="input-group-text" for="inputGroupFile02">Profile Image</label>
   </div>
-    <div class="mb-3">
-    <label for="email" class="form-label">E-mail</label>
-    <input
-      value="{{user.email}}"
-      type="text"
-      name="email"
-      id="EmailTextInput"
-      class="form-control"
-      placeholder="E-mail"
-    />
-  </div>
-   <div class="mb-3">
+  <div class="mb-3">
     <label for="bio" class="form-label">Bio</label>
-    <input
-      value="{{user.bio}}"
+    <textarea
+      rows="5"
+      cols="50"
       type="text"
       name="bio"
       id="EmailTextInput"
       class="form-control"
-      placeholder="Type your Bio"
-    />
+      placeholder="Type your Bio">{{user.bio}}</textarea>
   </div>
-  
+
   <button type="submit" class="btn btn-primary">Update</button>
   <a href="#" class="btn btn-primary">Delete Accont</a>
-</form> 
+</form>

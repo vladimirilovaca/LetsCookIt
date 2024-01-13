@@ -12,7 +12,8 @@ module.exports.profile = (req, res, next) => {
 
 module.exports.userProfile = (req, res, next) => {
     const id = req.params.id;
-    User.findById(id) 
+    User.findById(id)
+    .populate("posts")
     .then((user) => {
         res.render("users/users-profile", { user });
     })
@@ -32,9 +33,14 @@ module.exports.getEdit = (req, res, next) => {
   
   module.exports.doEdit = (req, res, next) => {
     const id = req.params.id;
+
+    if (req.body.bio) {
+      req.body.bio = req.body.bio.trim();
+    }
   
     User.findByIdAndUpdate(id, req.body, { new: true })
-      .then(() => {
+      .then((updatedUser) => {
+        req.session.currentUser = updatedUser;
         res.redirect("/profile");
       })
       .catch((err) => next(err));

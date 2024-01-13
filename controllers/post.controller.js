@@ -95,13 +95,12 @@ module.exports.deletePost = (req, res, next) => {
      .catch((err) => next(err));
  }
 
- //Chequear que no redirecciona a donde debe,lo manda al feed
 module.exports.deleComment = (req, res, next) => {
  const id = req.params.id;
 
  Comment.findByIdAndDelete(id) 
-    .then((post) => {
-      res.redirect(`/post/${post._id}`)
+    .then((comment) => {
+      res.redirect(`/post/${comment.post}`)
     })
     .catch((err) => next(err));
 }
