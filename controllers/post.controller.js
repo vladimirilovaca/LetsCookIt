@@ -71,6 +71,12 @@ module.exports.getEdit = (req, res, next) => {
   const id = req.params.id;
 
   Post.findById(id)
+    .populate({
+      path: 'comments',
+      populate: {
+        path: 'user',
+      }
+    })
     .then((post) => {
       res.render("recepies/edit-post", { post })
     })
