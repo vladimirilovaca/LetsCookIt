@@ -1,7 +1,7 @@
 const user = [{
     username: "Luchita",
     email: "luchita@letscookit.com",
-    image:"https://res.cloudinary.com/dxydjpdrn/image/upload/v1705142993/Letscookit/Luchitta_gagywl.jpg",
+    image:"https://res.cloudinary.com/ddtg22atq/image/upload/v1705249068/Letscookit/Luchitta_yxqjvc.jpg",
     password: "12345678",
     isActive: true,
     bio: "I can cook with my wand. Common Ron, the correct way to said it is wingardium leviosa"

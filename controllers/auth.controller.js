@@ -135,7 +135,7 @@ module.exports.doLoginGoogle = (req, res, next) => {
         if (loginErr) next(loginErr)
         else {
           req.session.currentUser = user;
-          res.redirect('/profile');
+          res.redirect('/feed');
         }
       })
     }

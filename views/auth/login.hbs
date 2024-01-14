@@ -3,12 +3,12 @@
 
   <form class="container-sm mx-auto" style="max-width: 400px;" action="/login" method="POST">
     <div class="mb-3">
-      <label for="email" style="color: #3498db;" class="form-label">Email address</label>
+      <label for="email" style="color: black;" class="form-label">Email address</label>
       <input value="{{email}}" type="email" name="email" class="{{#if errors}}is-invalid{{/if}} form-control" id="email"
         aria-describedby="emailHelp" required>
     </div>
     <div class="mb-3">
-      <label for="password" style="color: #3498db;" class="form-label">Password</label>
+      <label for="password" style="color: black;" class="form-label">Password</label>
       <input type="password" name="password" class="{{#if errors}}is-invalid{{/if}} form-control" id="password"
         required>
     </div>
@@ -17,7 +17,7 @@
       <small class="text-danger">{{errors.msg}}</small>
     </div>
     {{/if}}
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-dark">Login</button>
     <a class="btn text-bg-light" href="/auth/google">Sign in with <img src="/images/google-icon-2048x2048-czn3g8x8.png"
         class="mb-1" width="25"></img>oogle</a>
   </form>
