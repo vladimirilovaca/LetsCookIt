@@ -7,6 +7,7 @@ const PostSchema = mongoose.Schema({
     },
     image: {
         type: String,
+        default: "https://res.cloudinary.com/ddtg22atq/image/upload/v1705257136/Letscookit/default_suervg.png"
     },
     restaurant: String,
     user: {

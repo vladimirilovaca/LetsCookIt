@@ -1,33 +1,35 @@
-<form action="/profile/edit/{{user._id}}" method="POST" enctype="multipart/form-data">
-
-  <legend>Edit Profile</legend>
-  <div class="mb-3">
-    <label for="name" class="form-label">User Name</label>
-    <input
-      value="{{user.username}}"
-      type="text"
-      name="username"
-      id="userNameTextInput"
-      class="form-control"
-      placeholder="User Name"
-    />
-  </div>
-  <div class="input-group mb-3">
-    <input type="file" name="image" class="form-control" id="inputGroupFile02" />
-    <label class="input-group-text" for="inputGroupFile02">Image</label>
-  </div>
-  <div class="mb-3">
-    <label for="bio" class="form-label">Bio</label>
-    <textarea
-      rows="5"
-      cols="50"
-      type="text"
-      name="bio"
-      id="EmailTextInput"
-      class="form-control"
-      placeholder="Type your Bio">{{user.bio}}</textarea>
-  </div>
-
-  <button type="submit" class="btn btn-dark">Update</button>
-  <a href="#" class="btn btn-secondary">Delete Accont</a>
-</form>
+<div class="my-3">
+  <form action="/profile/edit/{{user._id}}" method="POST" class="row g-3 mx-auto" enctype="multipart/form-data" style="max-width: 900px;">
+  
+    <legend>Edit Profile</legend>
+    <div class="mb-3">
+      <label for="name" class="form-label">User Name</label>
+      <input
+        value="{{user.username}}"
+        type="text"
+        name="username"
+        id="userNameTextInput"
+        class="form-control"
+        placeholder="User Name"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <input type="file" name="image" class="form-control" id="inputGroupFile02" />
+      <label class="input-group-text" for="inputGroupFile02">Image</label>
+    </div>
+    <div class="mb-3">
+      <label for="bio" class="form-label">Bio</label>
+      <textarea
+        rows="5"
+        cols="50"
+        type="text"
+        name="bio"
+        id="EmailTextInput"
+        class="form-control"
+        placeholder="Type your Bio">{{user.bio}}</textarea>
+    </div>
+  
+    <button type="submit" class="btn btn-dark">Update</button>
+    <a href="#" class="btn btn-secondary">Delete Accont</a>
+  </form>
+</div>  
