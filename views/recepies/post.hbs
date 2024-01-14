@@ -22,9 +22,9 @@
         <p class="card-text">{{post.category}}</p>
         <pclass="card-text">{{post.user.username}}</p>
         {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
-        <a href="/edit/{{post._id}}" class="btn btn-success">Edit</a>
-        <a href="/recipe/{{post._id}}" class="btn btn-success">Add Recipe</a>
-        <a href="/recipe/edit/{{post._id}}" class="btn btn-success">Edit Recipe</a>
+        <a href="/edit/{{post._id}}" class="btn btn-secondary">Edit</a>
+        <a href="/recipe/{{post._id}}" class="btn btn-dark">Add Recipe</a>
+        <a href="/recipe/edit/{{post._id}}" class="btn btn-secondary">Edit Recipe</a>
         {{/isOwnedByUser}}
       </div>
     </div>
@@ -32,7 +32,7 @@
 </div>
 
 {{#each post.recipes}} 
-<div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+<div class="card text-bg-dark mb-3" style="max-width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Ingridients</h5>
     <ul>
@@ -54,7 +54,7 @@
 <form action="/post/{{post._id}}" method="POST" >
   <textarea id="myTextarea" name="content"></textarea>
 
-  <button type="submit" class="btn btn-success">Create Comment</button>
+  <button type="submit" class="btn btn-dark">Create Comment</button>
 </form>
 
 <!--<div>
@@ -72,7 +72,7 @@
   <div class="card-body">
     <h5 class="card-title">Comenta:</h5>
     <div>{{{this.content}}}</div>
-    <a href="/post/{{this._id}}/commentDelete" class="btn btn-primary">Delete Comment</a>
+    <a href="/post/{{this._id}}/commentDelete" class="btn btn-danger">Delete Comment</a>
   </div>
 </div>
 {{/each}}
