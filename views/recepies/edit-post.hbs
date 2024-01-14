@@ -1,65 +1,65 @@
-<div class="d-flex justify-content-center my-5">
-<form action="/edit/{{post._id}}" method="POST" enctype="multipart/form-data">
+<div class="my-5">
+  <form action="/edit/{{post._id}}" method="POST" class="mx-auto" enctype="multipart/form-data" style="max-width: 600px;">
 
-  <legend>Edit Post</legend>
-  <div class="mb-3">
-    <label for="name" class="form-label">Recepie Name</label>
-    <input
-      value="{{post.name}}"
-      type="text"
-      name="name"
-      id="recepieNameTextInput"
-      class="form-control"
-      placeholder="Recepie Name"
-    />
-  </div>
-  <div class="mb-3">
-    <label for="retaurant" class="form-label">Restaurant Name</label>
-    <input
-      value="{{post.restaurant}}"
-      type="text"
-      name="restaurant"
-      id="RestaurantNameTextInput"
-      class="form-control"
-      placeholder="Restaurant Name"
-    />
-  </div>
-  <div class="input-group mb-3">
-    <input
-      type="file"
-      name="image"
-      class="form-control"
-      id="inputGroupFile02"
-      value="{{post.image}}"
-    />
-    <label class="input-group-text" for="inputGroupFile02">Image</label>
-  </div>
-  <div class="mb-3">
-    <label for="disabledSelect" class="form-label">Category</label>
-    <select
-      class="form-select"
-      name="category"
-      aria-label="Default select example"
-      id="categorySelect"
-    >
-      <option value="Select One">Select One</option>
-      <option value="Meat">Meat</option>
-      <option value="Chicken">Chicken</option>
-      <option value="Fish">Fish</option>
-      <option value="Dessert">Dessert</option>
-      <option value="Salad">Salad</option>
-      <option value="Fruits">Fruits</option>
-      <option value="Vegetables">Vegetables</option>
-      <option value="Vegan">Vegan</option>
-      <option value="Vegetarian">Vegetarian</option>
-      <option value="Gluten Free">Gluten free</option>
-      <option value="Pasta">Pasta</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-dark">Update</button>
-  <a href="/post/{{post._id}}/postDelete" class="btn btn-secondary">Delete Post</a>
-</form>
+    <legend>Edit Post</legend>
+    <div class="mb-3">
+      <label for="name" class="form-label">Recepie Name</label>
+      <input
+        value="{{post.name}}"
+        type="text"
+        name="name"
+        id="recepieNameTextInput"
+        class="form-control"
+        placeholder="Recepie Name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="retaurant" class="form-label">Restaurant Name</label>
+      <input
+        value="{{post.restaurant}}"
+        type="text"
+        name="restaurant"
+        id="RestaurantNameTextInput"
+        class="form-control"
+        placeholder="Restaurant Name"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <input
+        type="file"
+        name="image"
+        class="form-control"
+        id="inputGroupFile02"
+        value="{{post.image}}"
+      />
+      <label class="input-group-text" for="inputGroupFile02">Image</label>
+    </div>
+    <div class="mb-3">
+      <label for="disabledSelect" class="form-label">Category</label>
+      <select
+        class="form-select"
+        name="category"
+        aria-label="Default select example"
+        id="categorySelect"
+      >
+        <option value="Select One">Select One</option>
+        <option value="Meat">Meat</option>
+        <option value="Chicken">Chicken</option>
+        <option value="Fish">Fish</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Salad">Salad</option>
+        <option value="Fruits">Fruits</option>
+        <option value="Vegetables">Vegetables</option>
+        <option value="Vegan">Vegan</option>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="Gluten Free">Gluten free</option>
+        <option value="Pasta">Pasta</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-dark">Update</button>
+    <a href="/post/{{post._id}}/postDelete" class="btn btn-secondary">Delete Post</a>
+  </form>
 </div>
 
 
