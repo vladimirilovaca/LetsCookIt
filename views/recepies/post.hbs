@@ -60,14 +60,16 @@
 
 
 {{#each post.comments}}
-<div class="card" style="max-width: 540px;">
-  <div class="card-header">
-    {{this.user.username}}
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Comenta:</h5>
-    <div>{{{this.content}}}</div>
-    <a href="/post/{{this._id}}/commentDelete" class="btn btn-danger">Delete Comment</a>
+<div class="my-3" style="margin-left: 120px">
+  <div class="card" style="max-width: 1250px;">
+    <div class="card-header">
+      {{this.user.username}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Comenta:</h5>
+      <div>{{{this.content}}}</div>
+      <a href="/post/{{this._id}}/commentDelete" class="btn btn-danger">Delete Comment</a>
+    </div>
   </div>
 </div>
 {{/each}}
