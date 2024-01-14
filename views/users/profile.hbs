@@ -1,17 +1,19 @@
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="{{currentUser.image}}" class="img-fluid rounded-start" alt="Profile Image">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h4 class="card-title">{{currentUser.username}}</h4>
-        <p class="card-text">{{currentUser.bio}}</p>
-        <p class="card-text"><small class="text-body-secondary">Email: {{currentUser.email}}</small></p>
+<div class="container my-4 mx-6">
+  <div class="card" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{currentUser.image}}" class="img-fluid rounded-start" alt="Profile Image">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title">{{currentUser.username}}</h4>
+          <p class="card-text">{{currentUser.bio}}</p>
+          <p class="card-text"><small class="text-body-secondary">Email: {{currentUser.email}}</small></p>
+        </div>
       </div>
     </div>
+    <a href="profile/edit/{{user._id}}" class="btn btn-secondary">Edit</a>
   </div>
-  <a href="profile/edit/{{user._id}}" class="btn btn-secondary">Edit</a>
 </div>
 
 <div class="container my-5">
