@@ -1,5 +1,6 @@
+<div id="main-container">
 <div class="container my-4 mx-6">
-  <div class="card" style="max-width: 540px;">
+  <div class="card bg-body-secondary" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{{currentUser.image}}" class="img-fluid rounded-start" alt="Profile Image">
@@ -23,6 +24,22 @@
     {{/each}}
   </div>
 </div> 
+</div> 
+
+<style>
+    #main-container {
+      background-image: url('https://res.cloudinary.com/ddtg22atq/image/upload/v1705263402/Letscookit/profile-background_ultnof.jpg'); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta real de tu imagen */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh; /* Ajusta la altura mínima para cubrir la totalidad del viewport */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+  </style>
 
 
 <!--<div class="profile-page">
