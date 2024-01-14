@@ -44,11 +44,13 @@
 {{/each}}
 
 {{!-- Aqui va el final comment --}}
-<form action="/post/{{post._id}}" method="POST" style="max-width: 600px">
-  <textarea id="myTextarea" name="content"></textarea>
+<div>
+  <form action="/post/{{post._id}}" method="POST" style="max-width: 1250px; margin-left: 120px">
+    <textarea id="myTextarea" name="content"></textarea>
 
-  <button type="submit" class="btn btn-dark">Create Comment</button>
-</form>
+    <button type="submit" class="btn btn-dark my-2">Create Comment</button>
+  </form>
+</div>
 
 <!--<div>
     {{#each post.comments}}
