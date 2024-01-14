@@ -9,7 +9,7 @@ const UserSchema = mongoose.Schema({
     type: String
   },
   bio: {
-    type: String
+    type: String 
   },
   image: {
     type: String,

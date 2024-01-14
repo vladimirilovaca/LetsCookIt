@@ -1,57 +1,50 @@
-<!--<div>
-    <img src="{{post.image}}" class="card-img-top" alt="...">
-    <p>{{post.name}}</p>
-    <p>{{post.user.username}}</p>
-    <h5 class="card-title">{{post.name}}</h5>
-    <p class="card-text">{{post.restaurant}}</p>
-    <p class="card-text">{{post.category}}</p>
-    {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
-      <a href="/edit/{{post._id}}" class="btn btn-success">Edit</a>
-    {{/isOwnedByUser}}
-</div>-->
-
-<div class="card mb-3" style="max-width: 540px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="{{post.image}}" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{post.name}}</h5>
-        <p class="card-text">{{post.restaurant}}</p>
-        <p class="card-text">{{post.category}}</p>
-        <pclass="card-text">{{post.user.username}}</p>
-        {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
-        <a href="/edit/{{post._id}}" class="btn btn-secondary">Edit</a>
-        <a href="/recipe/{{post._id}}" class="btn btn-dark">Add Recipe</a>
-        <a href="/recipe/edit/{{post._id}}" class="btn btn-secondary">Edit Recipe</a>
-        {{/isOwnedByUser}}
+<div class="container my-4" style="margin-left: 114px">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{post.image}}" class="img-fluid rounded-start" alt="...">
       </div>
-    </div>
+      <div class="col-md-8">
+        <div class="card-body">
+         <h5 class="card-title">{{post.name}}</h5>
+          <p class="card-text">Restaurant: {{post.restaurant}}</p>
+          <p class="card-text">Category: {{post.category}}</p>
+          <p class="card-text">{{post.user.username}}</p>
+          {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
+          <a href="/edit/{{post._id}}" class="btn btn-secondary">Edit</a>
+          <a href="/recipe/{{post._id}}" class="btn btn-dark">Add Recipe</a>
+          <a href="/recipe/edit/{{post._id}}" class="btn btn-secondary">Edit Recipe</a>
+          {{/isOwnedByUser}}
+        </div>
+      </div>
+   </div>
   </div>
 </div>
 
-{{#each post.recipes}} 
-<div class="card text-bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Ingridients</h5>
-    <ul>
-        {{#each this.ingredients}}
-          <li>{{this}}</li>
-        {{/each}}
+{{#each post.recipes}}
+<div class="row justify-content-center">
+  <div class="card text-bg-dark mb-3 mx-4" style="max-width: 600px;">
+    <div class="card-body">
+       <h5 class="card-title">Ingridients</h5>
+      <ul>
+          {{#each this.ingredients}}
+        <li>{{this}}</li>
+          {{/each}}
       </ul>
+    </div>
   </div>
-</div>
-<div class="card text-bg-light mb-3" style="max-width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Instructions</h5>
-    <p class="card-text">{{this.instructions}}</p>
+
+  <div class="card text-bg-light mb-3 mx-4" style="max-width: 600px;">
+   <div class="card-body">
+     <h5 class="card-title">Instructions</h5>
+     <p class="card-text">{{this.instructions}}</p>
+   </div>
   </div>
 </div>
 {{/each}}
 
 {{!-- Aqui va el final comment --}}
-<form action="/post/{{post._id}}" method="POST" >
+<form action="/post/{{post._id}}" method="POST" style="max-width: 600px">
   <textarea id="myTextarea" name="content"></textarea>
 
   <button type="submit" class="btn btn-dark">Create Comment</button>

@@ -40,6 +40,7 @@ module.exports.details = (req, res, next) => {
         path: 'user',
       }
     })
+    .populate("user")
     .populate("recipes")
     .then(post => {
       if (post) {
