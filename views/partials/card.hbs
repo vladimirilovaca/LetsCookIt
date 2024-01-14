@@ -6,6 +6,29 @@
     <p class="card-text">{{post.restaurant}}</p>
     <a href="/post/{{post._id}}" class="btn btn-dark">See More</a>
     <form action="/feed/{{post._id}}/like" method="POST">
+      <div class="d-flex align-items-center">
+        <button type="submit" class="btn btn-primary bg-light-green"
+          style="background-color: transparent; border: none;">
+          <i class="{{#postIsLikedByUser userId=currentUser._id likes=post.likes}}fas{{else}}far{{/postIsLikedByUser}} fa-heart"
+            style="color: red; font-size: 24px;"></i>
+        </button>
+        <span class="likeCounter ml-2">{{post.likes.length}}</span>
+      </div>
+    </form>
+    {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
+      <a href="/edit/{{post._id}}" class="btn btn-secondary">Edit</a>
+    {{/isOwnedByUser}}
+  </div>
+</div> 
+
+<!--<div class="card my-4 mx-3" style="width: 18rem">
+  <img src="{{post.image}}" class="card-img-top my-1 rounded img-fluid" alt="..." style="width: 500px; height: 200px">
+  <div class="card-body">
+    <a href="/profile/{{post.user._id}}" class="link-dark">{{post.user.username}}</a>
+    <h5 class="card-title">{{post.name}}</h5>
+    <p class="card-text">{{post.restaurant}}</p>
+    <a href="/post/{{post._id}}" class="btn btn-dark">See More</a>
+    <form action="/feed/{{post._id}}/like" method="POST">
       <button type="submit" class="btn btn-primary bg-light-green">{{#postIsLikedByUser userId=currentUser._id
         likes=post.likes}} No me gusta {{else}} Me gusta {{/postIsLikedByUser}}</button>
     </form>
@@ -13,4 +36,4 @@
       <a href="/edit/{{post._id}}" class="btn btn-secondary">Edit</a>
     {{/isOwnedByUser}}
   </div>
-</div>
+</div>-->
