@@ -1,20 +1,22 @@
-<form action="/recipe/edit/{{post._id}}" class="row g-3" method="POST">
-    {{#each post.recipes}}
-        <div class="mb-3" id="inputs-container">
-            <label for="formGroupExampleInput" class="form-label">Ingredients:</label>
-            {{#each this.ingredients}}
-                <input type="text" class="form-control mb-2" name="ingredients[]" value="{{this}}" placeholder="Ingredient">
-            {{/each}}
-        </div>
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="instructions">{{this.instructions}}</textarea>
-            <label for="floatingTextarea2">Instructions</label>
-        </div>
-    {{/each}}
+<div class="my-3">
+    <form action="/recipe/edit/{{post._id}}" class="row g-3 mx-auto" method="POST" style="max-width: 900px;">
+        {{#each post.recipes}}
+            <div class="mb-3" id="inputs-container">
+                <label for="formGroupExampleInput" class="form-label">Ingredients:</label>
+                {{#each this.ingredients}}
+                    <input type="text" class="form-control mb-2" name="ingredients[]" value="{{this}}" placeholder="Ingredient">
+                {{/each}}
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="instructions">{{this.instructions}}</textarea>
+                <label for="floatingTextarea2">Instructions</label>
+            </div>
+        {{/each}}
 
-    <button class="btn btn-secondary" id="add-ingredient">Add ingredient</button>
-    <button type="submit" class="btn btn-dark">Update Recipe</button>
-</form>
+        <button class="btn btn-secondary" id="add-ingredient">Add ingredient</button>
+        <button type="submit" class="btn btn-dark">Update Recipe</button>
+    </form>
+</div>
 
 <script>
     const addIngredientBtn = document.querySelector("#add-ingredient");
