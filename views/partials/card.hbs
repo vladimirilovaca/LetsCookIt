@@ -1,18 +1,17 @@
-<div class="card" style="width: 18rem;">
-  <img src="{{post.image}}" class="card-img-top" alt="...">
+<div class="card my-4 mx-3" style="width: 18rem">
+  <img src="{{post.image}}" class="card-img-top my-1 rounded img-fluid" alt="..." style="width: 500px; height: 200px">
   <div class="card-body">
-    <p>{{post.user.username}}</p>
-    <a href="/profile/{{post.user._id}}">{{post.user.username}}</a>
+    <a href="/profile/{{post.user._id}}" class="link-dark">{{post.user.username}}</a>
     <h5 class="card-title">{{post.name}}</h5>
     <p class="card-text">{{post.restaurant}}</p>
-    <a href="/post/{{post._id}}" class="btn btn-primary">See More</a>
+    <a href="/post/{{post._id}}" class="btn btn-dark">See More</a>
     {{currentUser.username}}
     <form action="/feed/{{post._id}}/like" method="POST">
       <button type="submit" class="btn btn-primary bg-light-green">{{#postIsLikedByUser userId=currentUser._id
         likes=post.likes}} No me gusta {{else}} Me gusta {{/postIsLikedByUser}}</button>
     </form>
     {{#isOwnedByUser currentUserId=currentUser._id postOwnerId=post.user._id}}
-      <a href="/edit/{{post._id}}" class="btn btn-success">Edit</a>
+      <a href="/edit/{{post._id}}" class="btn btn-secondary">Edit</a>
     {{/isOwnedByUser}}
   </div>
 </div>
