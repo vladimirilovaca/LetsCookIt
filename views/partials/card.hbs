@@ -5,7 +5,6 @@
     <h5 class="card-title">{{post.name}}</h5>
     <p class="card-text">{{post.restaurant}}</p>
     <a href="/post/{{post._id}}" class="btn btn-dark">See More</a>
-    {{currentUser.username}}
     <form action="/feed/{{post._id}}/like" method="POST">
       <button type="submit" class="btn btn-primary bg-light-green">{{#postIsLikedByUser userId=currentUser._id
         likes=post.likes}} No me gusta {{else}} Me gusta {{/postIsLikedByUser}}</button>
