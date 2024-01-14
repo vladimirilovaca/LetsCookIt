@@ -1,24 +1,41 @@
-<div id="login" class="container col-xxl-4">
-  <h1 class="text-center mt-5 mb-4">Login</h1>
+<div id="main-container">
+  <div id="login" class="container col-xxl-4">
+    <h1 class="text-center mt-5 mb-4">Login</h1>
 
-  <form class="container-sm mx-auto" style="max-width: 400px;" action="/login" method="POST">
-    <div class="mb-3">
-      <label for="email" style="color: black;" class="form-label">Email address</label>
-      <input value="{{email}}" type="email" name="email" class="{{#if errors}}is-invalid{{/if}} form-control" id="email"
-        aria-describedby="emailHelp" required>
-    </div>
-    <div class="mb-3">
-      <label for="password" style="color: black;" class="form-label">Password</label>
-      <input type="password" name="password" class="{{#if errors}}is-invalid{{/if}} form-control" id="password"
-        required>
-    </div>
-    {{#if errors}}
-    <div class="mb-3">
-      <small class="text-danger">{{errors.msg}}</small>
-    </div>
-    {{/if}}
-    <button type="submit" class="btn btn-dark">Login</button>
+    <form class="container-sm mx-auto" style="max-width: 400px;" action="/login" method="POST">
+      <div class="mb-3">
+        <label for="email" style="color: black;" class="form-label">Email address</label>
+        <input value="{{email}}" type="email" name="email" class="{{#if errors}}is-invalid{{/if}} form-control" id="email"
+          aria-describedby="emailHelp" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" style="color: black;" class="form-label">Password</label>
+        <input type="password" name="password" class="{{#if errors}}is-invalid{{/if}} form-control" id="password"
+         required>
+     </div>
+     {{#if errors}}
+     <div class="mb-3">
+       <small class="text-danger">{{errors.msg}}</small>
+     </div>
+     {{/if}}
+     <button type="submit" class="btn btn-dark">Login</button>
     <a class="btn text-bg-light" href="/auth/google">Sign in with <img src="/images/google-icon-2048x2048-czn3g8x8.png"
-        class="mb-1" width="25"></img>oogle</a>
-  </form>
-</div>
+          class="mb-1" width="25"></img>oogle</a>
+    </form>
+  </div>
+</div> 
+
+<style>
+    #main-container {
+      background-image: url('https://res.cloudinary.com/ddtg22atq/image/upload/v1705264088/Letscookit/Post_uadqzh.jpg'); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta real de tu imagen */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh; /* Ajusta la altura mínima para cubrir la totalidad del viewport */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+  </style>

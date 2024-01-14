@@ -1,9 +1,23 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<div class="my-5 mx-9 container">
+<div class="background-container">
+<div class="my-5 mx-auto container">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {{#each posts}}
       {{>card post=this currentUser=../currentUser}}
     {{/each}}
   </div>
-</div> 
+</div>
+</div>
 
+  <style>
+    .background-container {
+      background-image: url('https://res.cloudinary.com/ddtg22atq/image/upload/v1705261480/Letscookit/Posts_tdautt.jpg'); /* Reemplaza 'tu_ruta_de_imagen.jpg' con la ruta real de tu imagen */
+      background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+      background-position: center; /* Centra la imagen en el fondo */
+      background-repeat: no-repeat; /* Evita la repetición de la imagen */
+      min-height: 100vh; /* Establece una altura mínima del 100% del viewport */
+      margin: 0; /* Elimina el margen predeterminado */
+      display: flex;
+      align-items: center;
+    }
+  </style>
