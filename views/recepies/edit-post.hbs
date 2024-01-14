@@ -1,3 +1,4 @@
+<div class="d-flex justify-content-center my-5">
 <form action="/edit/{{post._id}}" method="POST" enctype="multipart/form-data">
 
   <legend>Edit Post</legend>
@@ -59,21 +60,23 @@
   <button type="submit" class="btn btn-dark">Update</button>
   <a href="/post/{{post._id}}/postDelete" class="btn btn-secondary">Delete Post</a>
 </form>
+</div>
 
 
-  {{#each post.comments}}
-  <div class="card" style="max-width: 540px;">
+{{#each post.comments}}
+<div class="my-3" style="margin-left: 120px">
+  <div class="card" style="max-width: 1250px;">
     <div class="card-header">
       {{this.user.username}}
     </div>
     <div class="card-body">
       <h5 class="card-title">Comenta:</h5>
-      <p class="card-text">{{this.content}}</p>
-      <a href="/post/{{this._id}}/commentDelete" class="btn btn-primary">Delete
-        Comment</a>
+      <div>{{{this.content}}}</div>
+      <a href="/post/{{this._id}}/commentDelete" class="btn btn-danger">Delete Comment</a>
     </div>
   </div>
-  {{/each}}
+</div>
+{{/each}}
 
 
 <script>
